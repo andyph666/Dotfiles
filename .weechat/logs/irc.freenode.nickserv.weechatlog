@@ -1,0 +1,25 @@
+2016-01-15 19:35:04	snazzybunny	REGISTER duJ4numiug andyph666@gmail.com
+2016-01-15 19:35:05	--	NickServ: You are already logged in as snazzybunny.
+2016-01-15 19:35:14	snazzybunny	SET HIDEMAIL ON
+2016-01-15 19:35:15	--	NickServ: The HIDEMAIL flag is already set for account snazzybunny.
+2016-01-15 19:35:42	ohwhyme	IDENTIFY snazzybunny duJ4numiug
+2016-01-15 19:35:43	--	NickServ: You are already logged in as snazzybunny.
+2016-01-15 19:35:43	--	NickServ: Please check your email for instructions to complete your registration.
+2016-01-15 19:35:55	ohwhyme	GROUP
+2016-01-15 19:35:56	--	NickServ: Nick ohwhyme is now registered to your account.
+2016-01-15 19:36:11	andyph666	IDENITFY snazzybunny duJ4numiug
+2016-01-15 19:36:12	--	NickServ: Invalid command. Use /msg NickServ help for a command listing.
+2016-01-15 19:36:19	andyph666	IDENTIFY snazzybunny duJ4numiug
+2016-01-15 19:36:19	--	NickServ: You are already logged in as snazzybunny.
+2016-01-15 19:36:19	--	NickServ: Please check your email for instructions to complete your registration.
+2016-01-15 19:36:27	andyph666	GROUP
+2016-01-15 19:36:27	--	NickServ: Nick andyph666 is now registered to your account.
+2016-01-15 19:37:53	snazzybunny	VERIFY REGISTER snazzybunny ompvkajqmxsi
+2016-01-15 19:38:12	snazzybunny	VERIFY REGISTER snazzybunny ompvkajqmxsi
+2016-01-15 19:38:22	snazzybunny	ls
+2016-01-15 19:38:24	--	irc: disconnected from server
+2016-01-15 19:41:49	--	NickServ: This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+2016-01-15 19:42:00	snazzybunny	IDENTIFY duJ4numiug
+2016-01-15 19:42:01	--	NickServ: You are now identified for snazzybunny.
+2016-01-15 19:42:09	snazzybunny	VERIFY REGISTER snazzybunny ompvkajqmxsi
+2016-01-15 19:42:09	--	NickServ: snazzybunny is not awaiting authorization.

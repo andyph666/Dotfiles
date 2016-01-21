@@ -1,0 +1,245 @@
+2016-01-15 19:19:18		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-01-15 19:19:34	=!=	Error with command "/server irc.freenode.net" (help on command: /help server)
+2016-01-15 19:19:38		[core]
+2016-01-15 19:19:38		  away     buffer   command  debug    filter   history  key      mouse    plugin   proxy    reload   save     set      upgrade  version  window 
+2016-01-15 19:19:38		  bar      color    cursor   eval     help     input    layout   mute     print    quit     repeat   secure   unset    uptime   wait   
+2016-01-15 19:19:38		[guile]
+2016-01-15 19:19:38		  guile
+2016-01-15 19:19:38		[python]
+2016-01-15 19:19:38		  python
+2016-01-15 19:19:38		[ruby]
+2016-01-15 19:19:38		  ruby
+2016-01-15 19:19:38		[script]
+2016-01-15 19:19:38		  script
+2016-01-15 19:19:38		[exec]
+2016-01-15 19:19:38		  exec
+2016-01-15 19:19:38		[irc]
+2016-01-15 19:19:38		  admin       connect     deop        ignore      kick        lusers      msg         op          query       remove      sapart      squery      topic       users       who       
+2016-01-15 19:19:38		  allchan     ctcp        devoice     info        kickban     map         names       oper        quiet       restart     saquit      squit       trace       version     whois     
+2016-01-15 19:19:38		  allpv       cycle       die         invite      kill        me          nick        part        quote       sajoin      server      stats       unban       voice       whowas    
+2016-01-15 19:19:38		  allserv     dcc         disconnect  ison        links       mode        notice      ping        reconnect   samode      service     summon      unquiet     wallchops 
+2016-01-15 19:19:38		  ban         dehalfop    halfop      join        list        motd        notify      pong        rehash      sanick      servlist    time        userhost    wallops   
+2016-01-15 19:19:38		[alias]
+2016-01-15 19:19:38		  AAWAY    AME      ANICK    BYE      CHAT     CLOSE    IG       K        LEAVE    MSGBUF   N        REDRAW   SIGNOFF  UB       V        WC       WII    
+2016-01-15 19:19:38		  alias    AMSG     BEEP     C        CL       EXIT     J        KB       M        MUB      Q        SAY      T        UMODE    W        WI       WW     
+2016-01-15 19:19:38		[aspell]
+2016-01-15 19:19:38		  aspell
+2016-01-15 19:19:38		[xfer]
+2016-01-15 19:19:38		  me  xfer
+2016-01-15 19:19:38		[tcl]
+2016-01-15 19:19:38		  tcl
+2016-01-15 19:19:38		[charset]
+2016-01-15 19:19:38		  charset
+2016-01-15 19:19:38		[logger]
+2016-01-15 19:19:38		  logger
+2016-01-15 19:19:38		[relay]
+2016-01-15 19:19:38		  relay
+2016-01-15 19:19:38		[lua]
+2016-01-15 19:19:38		  lua
+2016-01-15 19:19:38		[perl]
+2016-01-15 19:19:38		  perl
+2016-01-15 19:19:38		[trigger]
+2016-01-15 19:19:38		  trigger
+2016-01-15 19:19:43		[irc]  /server  list|listfull [<server>]
+2016-01-15 19:19:43		                add <server> <hostname>[/<port>] [-temp] [-<option>[=<value>]] [-no<option>]
+2016-01-15 19:19:43		                copy|rename <server> <new_name>
+2016-01-15 19:19:43		                reorder <server> [<server>...]
+2016-01-15 19:19:43		                del|keep <server>
+2016-01-15 19:19:43		                deloutq|jump|raw
+2016-01-15 19:19:43		list, add or remove IRC servers
+2016-01-15 19:19:43		    list: list servers (without argument, this list is displayed)
+2016-01-15 19:19:43		listfull: list servers with detailed info for each server
+2016-01-15 19:19:43		     add: add a new server
+2016-01-15 19:19:43		  server: server name, for internal and display use
+2016-01-15 19:19:43		hostname: name or IP address of server, with optional port (default: 6667), many addresses can be separated by a comma
+2016-01-15 19:19:43		    temp: add a temporary server (not saved)
+2016-01-15 19:19:43		  option: set option for server (for boolean option, value can be omitted)
+2016-01-15 19:19:43		nooption: set boolean option to 'off' (for example: -nossl)
+2016-01-15 19:19:43		    copy: duplicate a server
+2016-01-15 19:19:43		  rename: rename a server
+2016-01-15 19:19:43		 reorder: reorder list of servers
+2016-01-15 19:19:43		    keep: keep server in config file (for temporary servers only)
+2016-01-15 19:19:43		     del: delete a server
+2016-01-15 19:19:43		 deloutq: delete messages out queue for all servers (all messages WeeChat is currently sending)
+2016-01-15 19:19:43		    jump: jump to server buffer
+2016-01-15 19:19:43		     raw: open buffer with raw IRC data
+2016-01-15 19:19:43		Examples:
+2016-01-15 19:19:43		  /server listfull
+2016-01-15 19:19:43		  /server add freenode chat.freenode.net
+2016-01-15 19:19:43		  /server add freenode chat.freenode.net/6697 -ssl -autoconnect
+2016-01-15 19:19:43		  /server add chatspike irc.chatspike.net/6667,irc.duckspike.net/6667
+2016-01-15 19:19:43		  /server copy freenode freenode-test
+2016-01-15 19:19:43		  /server rename freenode-test freenode2
+2016-01-15 19:19:43		  /server reorder freenode2 freenode
+2016-01-15 19:19:43		  /server del freenode
+2016-01-15 19:19:43		  /server deloutq
+2016-01-15 19:19:50		No server
+2016-01-15 19:20:30		irc: server freenode added
+2016-01-15 19:20:35		All servers:
+2016-01-15 19:20:35		Server: freenode [not connected]
+2016-01-15 19:20:35		  addresses. . . . . . : 'chat.freenode.net/6697'
+2016-01-15 19:20:35		  proxy. . . . . . . . :   ('')
+2016-01-15 19:20:35		  ipv6 . . . . . . . . :   (on)
+2016-01-15 19:20:35		  ssl. . . . . . . . . : on
+2016-01-15 19:20:35		  ssl_cert . . . . . . :   ('')
+2016-01-15 19:20:35		  ssl_priorities . . . :   ('NORMAL:-VERS-SSL3.0')
+2016-01-15 19:20:35		  ssl_dhkey_size . . . :   (2048)
+2016-01-15 19:20:35		  ssl_fingerprint. . . :   ('')
+2016-01-15 19:20:35		  ssl_verify . . . . . :   (on)
+2016-01-15 19:20:35		  password . . . . . . :   (hidden)
+2016-01-15 19:20:35		  capabilities . . . . :   ('')
+2016-01-15 19:20:35		  sasl_mechanism . . . :   ('plain')
+2016-01-15 19:20:35		  sasl_username. . . . :   ('')
+2016-01-15 19:20:35		  sasl_password. . . . :   (hidden)
+2016-01-15 19:20:35		  sasl_key. .  . . . . :   ('')
+2016-01-15 19:20:35		  sasl_timeout . . . . :   (15 seconds)
+2016-01-15 19:20:35		  sasl_fail. . . . . . :   ('continue')
+2016-01-15 19:20:35		  autoconnect. . . . . : on
+2016-01-15 19:20:35		  autoreconnect. . . . :   (on)
+2016-01-15 19:20:35		  autoreconnect_delay. :   (10 seconds)
+2016-01-15 19:20:35		  nicks. . . . . . . . :   ('andyph666,andyph6661,andyph6662,andyph6663,andyph6664')
+2016-01-15 19:20:35		  username . . . . . . :   ('andyph666')
+2016-01-15 19:20:35		  realname . . . . . . :   ('')
+2016-01-15 19:20:35		  local_hostname . . . :   ('')
+2016-01-15 19:20:35		  command. . . . . . . :   ('')
+2016-01-15 19:20:35		  command_delay. . . . :   (0 seconds)
+2016-01-15 19:20:35		  autojoin . . . . . . :   ('')
+2016-01-15 19:20:35		  autorejoin . . . . . :   (off)
+2016-01-15 19:20:35		  autorejoin_delay . . :   (30 seconds)
+2016-01-15 19:20:35		  connection_timeout . :   (60 seconds)
+2016-01-15 19:20:35		  anti_flood_prio_high :   (2 seconds)
+2016-01-15 19:20:35		  anti_flood_prio_low. :   (2 seconds)
+2016-01-15 19:20:35		  away_check . . . . . :   (0 minutes)
+2016-01-15 19:20:35		  away_check_max_nicks :   (25)
+2016-01-15 19:20:35		  default_msg_kick . . :   ('')
+2016-01-15 19:20:35		  default_msg_part . . :   ('WeeChat %v')
+2016-01-15 19:20:35		  default_msg_quit . . :   ('WeeChat %v')
+2016-01-15 19:20:35		  notify . . . . . . . :   ('')
+2016-01-15 19:20:41		All servers:
+2016-01-15 19:20:41		   freenode
+2016-01-15 19:20:43	=!=	Error with command "/server freenode" (help on command: /help server)
+2016-01-15 19:20:47		All servers:
+2016-01-15 19:20:47		   freenode
+2016-01-15 19:22:07		Option changed: irc.server.freenode.nicks = "snazzybunny,ohwhyme,andyph666"  (default: (undefined))
+2016-01-15 19:22:40		Option changed: irc.server.freenode.username = "snazzybunny"  (default: (undefined))
+2016-01-15 19:23:06		Option changed: irc.server.freenode.realname = "Andy"  (default: (undefined))
+2016-01-15 19:29:43		Option changed: weechat.bar.title.color_bg = 60  (default: blue)
+2016-01-15 19:29:49		Option changed: weechat.bar.title.color_bg = 40  (default: blue)
+2016-01-15 19:29:51		Option changed: weechat.bar.title.color_bg = 60  (default: blue)
+2016-01-15 19:30:03		Option changed: weechat.bar.status.color_bg = 60  (default: blue)
+2016-01-15 19:30:07		Option changed: weechat.bar.status.color_bg = 80  (default: blue)
+2016-01-15 19:30:08		Option changed: weechat.bar.status.color_bg = 60  (default: blue)
+2016-01-15 19:30:39		Option changed: weechat.bar.status.color_bg = 63  (default: blue)
+2016-01-15 19:30:41		Option changed: weechat.bar.status.color_bg = 60  (default: blue)
+2016-01-15 19:33:53	=!=	Too few arguments for command "/msg" (help on command: /help msg)
+2016-01-15 19:38:48	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:38:48	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:38:48	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:38:48	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:38:48	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:38:48	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:38:54	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:38:54	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:38:54	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:38:54	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:38:54	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:38:54	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:39:31	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:39:31	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:39:31	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:39:31	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:39:31	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:39:31	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:14	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:14	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:14	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:14	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:14	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:14	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:23	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:23	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:23	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:23	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:23	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:23	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:52	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:52	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:52	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:52	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:52	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:52	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:57	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:57	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:57	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:57	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:57	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:57	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:59	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:59	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:59	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:59	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:40:59	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:40:59	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:01	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:01	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:01	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:01	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:01	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:01	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:03	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:03	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:03	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:03	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:03	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:03	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:05	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:05	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:05	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:05	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:05	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:05	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:34	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:34	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:34	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:34	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:34	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:34	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:45	=!=	irc: unable to add temporary server "chat.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:45	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:45	=!=	irc: unable to add temporary server "6667" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:45	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-15 19:41:45	=!=	irc: unable to add temporary server "snazzybunny:duJ4numiug" because the addition of temporary servers with command /connect is currently disabled
+2016-01-15 19:41:45	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-17 04:33:36		fifo: removing old fifo pipe "/home/andyph666/.weechat/weechat_fifo_88177"
+2016-01-17 04:33:36		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-01-17 04:33:49	 !!! 	irc: unable to add temporary server "irc.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2016-01-17 04:33:49	 !!! 	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2016-01-17 05:51:47		No server
+2016-01-17 05:51:54	 !!! 	Error with command "/server irc.freenode.net" (help on command: /help server)
+2016-01-17 05:52:37	 !!! 	Error: option "irc.server.freenode.autojoin" not found
+2016-01-17 05:52:54		irc: server freenode added
+2016-01-17 05:53:24		Option changed: irc.server.freenode.nicks = "snazzybunny, ohwhyme, andyph666"  (default: (undefined))
+2016-01-17 05:53:52		Option changed: irc.server.freenode.username = "snazzybunny"  (default: (undefined))
+2016-01-17 05:54:10		Option changed: irc.server.freenode.realname = "Andy"  (default: (undefined))
+2016-01-17 05:54:32		Option changed: irc.server.freenode.autoconnect = on  (default: (undefined))
+2016-01-17 05:54:52		Option changed: irc.server.freenode.addresses = "chat.freenode.net/7000"  (default: (undefined))
+2016-01-17 05:54:57		Option changed: irc.server.freenode.ssl = on  (default: (undefined))
+2016-01-17 05:55:13		Option changed: irc.server.freenode.command = "/msg nickserv identify xxxxxxx"  (default: (undefined))
+2016-01-17 05:55:17		Option changed: irc.server.freenode.command = "/msg nickserv identify xxxxxxx"  (default: (undefined))
+2016-01-17 05:55:19		Option changed: irc.server.freenode.command = "/msg nickserv identify xxxxxxx"  (default: (undefined))
+2016-01-17 05:55:45		Option changed: irc.server.freenode.command = "/msg nickserv identify duJ4numiug"  (default: (undefined))
+2016-01-17 05:56:48		Option changed: irc.server.freenode.ssl = on  (default: (undefined))
+2016-01-17 05:56:49		Option changed: irc.server.freenode.ssl = on  (default: (undefined))
+2016-01-17 05:57:02		Option changed: irc.server.freenode.ssl = off  (default: (undefined))
+2016-01-17 05:57:19		Option changed: irc.server.freenode.ssl
+2016-01-17 05:57:41		Option changed: irc.server.freenode.addresses
+2016-01-17 05:58:12	 !!! 	irc: server "freenode" already exists, can't add it!
+2016-01-17 05:58:33		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-01-17 05:58:53		Option changed: irc.server.freenode.addresses = "chat.freenode.net/7000"  (default: (undefined))
+2016-01-17 05:58:55		Option changed: irc.server.freenode.addresses = "chat.freenode.net/7000"  (default: (undefined))
+2016-01-17 05:58:56		Option changed: irc.server.freenode.addresses = "chat.freenode.net/7000"  (default: (undefined))
+2016-01-17 05:59:11		Option changed: irc.server.freenode.addresses = "chat.freenode.net"  (default: (undefined))
+2016-01-17 05:59:44		Option changed: irc.server.freenode.command = "/msg nickserv identify xxxxxxx"  (default: (undefined))
+2016-01-17 05:59:58		Option changed: irc.server.freenode.command = "/msg nickserv identify duJ4numiug"  (default: (undefined))
+2016-01-17 06:00:43		Option changed: irc.server.freenode.autojoin = "#archlinux"  (default: (undefined))
+2016-01-17 18:10:37		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
