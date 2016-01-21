@@ -1,0 +1,11 @@
+windows:
+  - name: os1
+    root: ~/CS4118/
+    layout: main-vertical
+    panes:
+        - commands:
+            - tmux resize-pane -t 1 -x 120
+        - commands:
+            - ls -la
+        - commands:
+            - task list                   

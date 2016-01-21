@@ -1,0 +1,8 @@
+#!/bin/bash
+while ~/.i3/sr-watcher/wait-for-resolution-change
+do 
+    pkill lemonbar && pkill -9 -f /bin/bash\ /home/andyph666/.config/panel/bar_config && pkill feh & killall bar_config
+    ~/.config/panel/bar_config
+    sh ~/.fehbg
+    sleep 1s; 
+done&
