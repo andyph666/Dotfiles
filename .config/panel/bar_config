@@ -82,7 +82,7 @@ ram(){
 }
 
  temp(){
-     temp=$(~/.i3/i3-weather/weather.py 12761347 | grep -o "[0-9]*.[F]$")
+     temp=$(~/.i3/i3-weather/weather.py 12761347 | awk -F":" '{ print $2}' | sed 's/^ *//')
      #    temp=$(sensors | grep temp1 | sed '1d;s/.*+\([0-9]*\).*/\1/')
 #	echo "%{F$YELLOW} ${temp}F"
 	echo "%{F$YELLOW} ${temp}"
