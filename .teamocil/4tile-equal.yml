@@ -1,0 +1,14 @@
+windows:
+  - name: 4tile-default
+    root: ~/
+    layout: tiled
+    panes:
+        - commands:
+            - task list
+            #  - tmux resize-pane -t 1 -x 120
+        - commands:
+            - ls -la
+        - commands:
+            - echo "test"
+        - commands:
+            - echo "test"

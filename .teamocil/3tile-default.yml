@@ -1,0 +1,12 @@
+windows:
+  - name: 3tile-default
+    root: ~/
+    layout: tiled
+    panes:
+        - commands:
+            - task list
+            #  - tmux resize-pane -t 1 -x 120
+        - commands:
+            - ls -la
+        - commands:
+            - tmux resize-pane -D 15                  

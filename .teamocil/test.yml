@@ -1,6 +1,6 @@
 windows:
   - name: sample-three-panes
-    root: ~/w4118
+    root: ~/
     layout: main-vertical
     panes:
       - commands:

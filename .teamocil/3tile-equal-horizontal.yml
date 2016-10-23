@@ -1,0 +1,12 @@
+windows:
+  - name: workspace
+    root: ~/
+    layout: even-horizontal
+    panes:
+        - commands:
+            - task list
+            #  - tmux resize-pane -t 1 -x 120
+        - commands:
+            - ls -la
+        - commands:
+            - pwd                 

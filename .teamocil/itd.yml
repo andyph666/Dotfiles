@@ -1,0 +1,11 @@
+windows:
+  - name: ITD-workspace
+    root: "~/Shares/Dropbox/Columbia/2016/INTRO_TO_DATABASES"
+    layout: main-vertical
+    panes:
+      - commands:
+          - tmux resize-pane -t 1 -x 120
+      - commands:
+          - ls -la
+      - commands:
+          - task list
