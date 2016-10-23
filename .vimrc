@@ -1,13 +1,13 @@
 " Vundle stuff
 set nocompatible               " be iMproved
-filetype off                   " required!
-
+"filetype off                   " required!
+filetype on
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 
-Bundle 'edkolev/tmuxline.vim'
+"Bundle 'edkolev/tmuxline.vim' DISABLED from LAST
 Bundle "def-lkb/ocp-indent-vim"
 autocmd FileType ocaml exec ":source " . g:opamshare . "/ocp-indent/vim/indent/ocaml.vim"
 
@@ -19,7 +19,7 @@ Bundle 'vim-quicktask'
 " Editing
 Plugin 'itchyny/calendar.vim'
 Bundle 'Align'
-Bundle 'kana/vim-smartinput'
+"Bundle 'kana/vim-smartinput'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
@@ -33,7 +33,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'thinca/vim-quickrun'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tyru/open-browser.vim'
-
+Plugin 'lervag/vimtex'
 " File Specific
 Bundle 'digitaltoad/vim-jade'
 Bundle 'gregsexton/MatchTag'
@@ -60,11 +60,13 @@ Plugin 'othree/html5.vim'
 Plugin 'klen/python-mode'
 
 " Looks
+Plugin 'morhetz/gruvbox'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'skalnik/vim-irblack'
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'altercation/vim-colors-solarize'
-"Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'tomasr/molokai'
 
 
@@ -93,7 +95,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'carlobaldassi/ConqueTerm'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'tpope/vim-sensible'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'mileszs/ack.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 " Track the engine.
@@ -109,12 +111,50 @@ filetype plugin indent on     " required!
 
 "source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 "set laststatus=2
-set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim/
-set laststatus=2
-set t_Co=256
 
+" set colors
+"set t_Co=256
+let g:ackprg = 'ag --nogroup --nocolor --column'
+" google calendar stuff
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_section=''
+let g:airline_detect_paste=1 " Show PASTE if in paste mode
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+"enable powerline from here down. Not source above.
+"set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim/
+"set laststatus=2
 
 "Ocaml import 
 
@@ -162,10 +202,13 @@ set tabstop=8
 set clipboard=unnamedplus
 
 syntax on
-colorscheme slate
+"colorscheme slate
+"let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 syntax enable
 set background=dark
 "colorscheme solarized
+"let g:solarized_termcolors=256
 
 autocmd Filetype c setlocal noexpandtab softtabstop=8 shiftwidth=8
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -186,9 +229,6 @@ function FT_ocaml()
     filetype indent on
     filetype plugin indent on
 endfunction
-
-
-
 
 " Compatible with ranger 1.4.2 through 1.7.*
 "
@@ -233,3 +273,31 @@ function! RangeChooser()
 endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :<C-U>RangerChooser<CR>
+
+"TURN OFF PARENTHESIS MATCHING
+let loaded_delimitMate = 0
+"TURN OFF PYTHON FOLDING
+let g:pymode_folding = 0
+
+"ENABLE MOUSE
+set mouse=a
+
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'

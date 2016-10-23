@@ -129,6 +129,7 @@ bindsym Mod1+a focus parent
 
 # focus the child container
 #bindsym Mod1+d focus child
+bindsym Mod1+b focus child
 
 # move the currently focused window to the scratchpad
 bindsym Mod1+Shift+minus move scratchpad
@@ -203,39 +204,66 @@ bindsym XF86AudioNext exec --no-startup-id playcontrols next
 bindsym XF86Calculator exec --no-startup-id gnome-calculator 
 #bindsym XF86TouchpadToggle exec --no-startup-id /home/luca/Documenti/toggletouchpad
 
-bindsym Mod4+F12 exec --no-startup-id amixer -c 1 sset 'Master' 5%+
-bindsym Mod4+F11 exec --no-startup-id amixer -c 1 sset 'Master' 5%-
-bindsym Mod4+F10 exec --no-startup-id amixer sset 'Master' toggle
-bindsym Mod4+Down exec --no-startup-id playcontrols toggle
-bindsym Mod4+Up exec --no-startup-id playcontrols stop
-bindsym Mod4+Left exec --no-startup-id playcontrols prev
-bindsym Mod4+Right exec --no-startup-id playcontrols next
-bindsym Mod4+KP_Enter exec --no-startup-id gnome-calculator 
+bindsym Mod1+F12 exec --no-startup-id amixer set 'Master' 5%+
+bindsym Mod1+F11 exec --no-startup-id amixer set 'Master' 5%-
+#bindsym Mod1+F10 exec --no-startup-id amixer sset 'Master' toggle
+bindsym Mod1+F10 exec --no-startup-id (amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
+
+bindsym Mod1+F8 exec --no-startup-id playcontrols toggle
+#bindsym Mod1+Up exec --no-startup-id playcontrols stop
+bindsym Mod1+F7 exec --no-startup-id playcontrols prev
+bindsym Mod1+F9 exec --no-startup-id playcontrols next
+bindsym Mod1+KP_Enter exec --no-startup-id gnome-calculator 
 #bindsym Mod4+F9 exec --no-startup-id /home/luca/Documenti/toggletouchpad
 
 bindsym Mod1+shift+g exec --no-startup-id geany
+bindsym Mod1+shift+t exec --no-startup-id urxvt -e tmux
 bindsym Mod1+p exec --no-startup-id pcmanfm
 bindsym Mod1+shift+a exec --no-startup-id audacious
 bindsym Mod1+shift+n exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp -s playlist 
 bindsym Mod1+shift+f exec --no-startup-id urxvt -name ranger -e ranger
 bindsym Mod1+shift+v exec --no-startup-id vlc
-bindsym Mod1+shift+s exec --no-startup-id spotify --ui.track_notifications_enabled=false
-bindsym Mod1+shift+i exec --no-startup-id thunderbird
-bindsym Mod1+shift+b exec --no-startup-id iceweasel
+#bindsym Mod1+shift+s exec --no-startup-id spotify --ui.track_notifications_enabled=false
+bindsym Mod1+shift+b exec --no-startup-id thunderbird
+bindsym Mod1+shift+i exec --no-startup-id iceweasel
+bindsym Mod1+shift+o exec --no-startup-id foxitreader
+bindsym Mod1+shift+m exec --no-startup-id matlab
+bindsym Mod1+shift+u exec --no-startup-id rstudio
+bindsym Mod1+shift+p exec --no-startup-id pycharm
+bindsym Mod1+shift+d exec --no-startup-id pidgin
+bindsym Mod1+shift+s exec --no-startup-id skype
+bindsym Mod1+shift+w exec --no-startup-id subl
+
 #bindsym Mod1+shift+p exec --no-startup-id urxvt -name games-launcher -e /home/luca/Documenti/games.sh
 bindsym Mod1+Print exec --no-startup-id scrot 'Schermata%Y-%m-%d-%T.png' -e 'mv $f ~/Pictures/'
 
-assign [class="Audacious"] $ws6
-assign [class="Vlc"] $ws6
+assign [class="Audacious"] $ws8
+#assign [class="Vlc"] $ws8
 assign [class="Iceweasel"] $ws1
-assign [class="Telegram"] $ws2
-assign [class="Spotify"] $ws6
-assign [class="pidgin"] $ws2
+assign [class="Telegram"] $ws9
+assign [class="Spotify"] $ws8
+assign [class="pidgin"] $ws9
+assign [class="skype"] $ws9
+
 assign [class="URxvt" instance="ncmpcpp"] $ws3
 assign [class="URxvt" instance="tty-clock"] $ws3
 #assign [class="URxvt" instance="mcabber"] $ws2
+assign [class="URxvt" instance="tmux"] $ws4
+assign [class="URxvt" instance="weechat"] $ws9
+assign [class="URxvt" instance="mutt"] $ws10
+
+assign [class="URxvt" instance="urxvt_left_ws5"] $ws5
+assign [class="URxvt" instance="urxvt_topright_ws5"] $ws5
+assign [class="URxvt" instance="urxvt_bottomright_ws5"] $ws5
+
+assign [class="URxvt" instance="urxvt_left_ws6"] $ws6
+assign [class="URxvt" instance="urxvt_right_ws6"] $ws6
 
 
+assign [class="URxvt" instance="urxvt_topleft_ws7"] $ws7
+assign [class="URxvt" instance="urxvt_topright_ws7"] $ws7
+assign [class="URxvt" instance="urxvt_bottomright_ws7"] $ws7
+assign [class="URxvt" instance="urxvt_bottomleft_ws7"] $ws7
 ### floating windows ###
 #for_window [class="Steam"] floating enable
 for_window [class="Gimp"] floating enable
@@ -247,12 +275,15 @@ for_window [class="URxvt" instance="games-launcher$"] move to workspace $ws5, fl
 exec --no-startup-id randr -s 1920x1200
 exec vmware-user-suid-wrapper --no-startup-id
 exec --no-startup-id compton -bG --config ~/.config/compton.conf 
-
-exec --no-startup-id vmhgfs-fuse -o allow_other -o auto_unmount .host:/ ~/Shares
+#exec --no-startup-id vmhgfs-fuse -o allow_other -o auto_unmount .host:/ ~/Shares
 
 exec --no-startup-id iceweasel 
+
+#exec --no-startup-id "i3-msg 'workspace $ws3; append_layout ~/test3.json'"
+exec --no-startup-id "i3-msg 'workspace $ws3; append_layout ~/.i3/workspace-III.json'"
+
 exec --no-startup-id conky -c ~/.config/panel/empty_conky 
-exec --no-startup-id i3-msg 'workspace $ws3'
+#exec --no-startup-id i3-msg 'workspace $ws3'
 
 exec --no-startup-id mkfontdir ~/.local/share/fonts && xset +fp ~/.local/share/fonts && xset fp rehash
 #exec --no-startup-id mkfontdir ~/.local/share/fonts && xset +fp ~/.local/share/fonts && xset fp rehash && ~/.config/panel/bar_config
@@ -261,9 +292,49 @@ exec --no-startup-id ~/.i3/res_changer
 #exec --no-startup-id ~/sr-watcher/wait-for-resolution-change 1 ~/.config/panel/bar_config
 exec --no-startup-id ~/Telegram
 exec --no-startup-id sh ~/.fehbg
-exec --no-startup-id mpd
-exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp -s playlist
-exec --no-startup-id urxvt -name tty-clock -e tty-clock -C 2 -c -d 20000000000
+#exec --no-startup-id mpd ~/.config/mpd/mpd.conf
+exec --no-startup-id urxvt -name ncmpcppleft -e ncmpcpp -s playlist
+exec --no-startup-id urxvt -name ttyclocktopright -e tty-clock -C 2 -c -d 20000000000
+exec --no-startup-id urxvt -name htopmiddleright -e htop
+
+exec --no-startup-id urxvt -name rangertopleft -e ranger
+#exec --no-startup-id urxvt -hold -name screenfetchbottomright -e archey3
+
+exec --no-startup-id urxvt -hold -name screenfetchbottomright -e screenfetch -d '-shell'
+
 exec --no-startup-id xinput disable 'ETPS/2 Elantech Touchpad' 
 exec --no-startup-id xinput set-prop 'USB Optical Mouse' 261 0.8
 exec --no-startup-id sleep 3 && urxvt -name mcabber -e mcabbert
+
+
+exec --no-startup-id urxvt -name tmux -e tmux
+#exec --no-startup-id urxvt -name tmux -e tmux new-session -d "teamocil 3tile" \; attach
+#exec --no-startup-id urxvt -name tmux -e tmux attach
+
+exec --no-startup-id urxvt -name weechat -e weechat
+#exec --no-startup-id urxvt -name mutt -e mutt
+
+
+#### WORKSPACE 5
+exec --no-startup-id "i3-msg 'workspace $ws5; append_layout ~/.i3/workspace-V.json'"
+exec --no-startup-id urxvt -name urxvt_left_ws5
+exec --no-startup-id urxvt -name urxvt_topright_ws5
+exec --no-startup-id urxvt -name urxvt_bottomright_ws5
+
+#### WORKSPACE 6
+exec --no-startup-id "i3-msg 'workspace $ws6; append_layout ~/.i3/workspace-VI.json'"
+exec --no-startup-id urxvt -name urxvt_left_ws6
+exec --no-startup-id urxvt -name urxvt_right_ws6
+
+#exec --no-startup-id ~/.mutt/execofflineimap
+exec --no-startup-id "i3-msg 'workspace $ws7; append_layout ~/.i3/workspace-VII.json'"
+
+exec --no-startup-id urxvt -name urxvt_topleft_ws7
+exec --no-startup-id urxvt -name urxvt_topright_ws7
+exec --no-startup-id urxvt -name urxvt_bottomright_ws7
+exec --no-startup-id urxvt -name urxvt_bottomleft_ws7
+
+exec --no-startup-id ~/.mutt/checkmail
+exec --no-startup-id urxvt -name mutt -e mutt
+
+exec --no-startup-id i3-msg 'workspace $ws3'

@@ -1,8 +1,4 @@
-#!/usr/bin/python
-
-# For Python 2.7
-from __future__ import print_function
-
+#!/usr/bin/env python3
 import argparse
 from functools import partial
 import json
@@ -10,18 +6,29 @@ import logging
 import requests
 import sys
 import time
+import urllib.parse
 
 from bs4 import BeautifulSoup
 
+BASE_WEATHER_URL = 'https://query.yahooapis.com/v1/public/yql?'
+WEATHER_QUERY = ('select * from weather.forecast where woeid={woeid} '
+                 'and u="{unit}"')
+
 def fuzzy_direction(degrees):
-    directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']
-    degrees = round(float(degrees) / 45)
-    index = int(degrees) % 8
+    directions = 'N NE E SE S SW W NW'.split()
+    index = round(degrees / 45) % 8
     return directions[index]
 
+def arrow_direction(degrees):
+    arrows = list('↓↙←↖↑↗→↘')
+    index = round(degrees / 45) % 8
+    return arrows[index]
+
 def get_weather(woeid, unit, format, timeout=None):
-    url = ('http://weather.yahooapis.com/forecastrss?w={}&u={}'
-           ''.format(woeid, unit.lower()))
+    url = BASE_WEATHER_URL + urllib.parse.urlencode({
+        'q': WEATHER_QUERY.format(unit=unit, woeid=woeid),
+        'format': 'xml'
+    })
     logging.info("Fetching %s" % url)
     try:
         r = requests.get(url, timeout=timeout)
@@ -32,7 +39,7 @@ def get_weather(woeid, unit, format, timeout=None):
     if r.status_code != 200:
         return 'HTTP error: %s' % r.status_code
 
-    s = BeautifulSoup(r.text, "lxml")
+    s = BeautifulSoup(r.text, 'html.parser')
 
     data = {}
 
@@ -52,7 +59,8 @@ def get_weather(woeid, unit, format, timeout=None):
     # "what wind_direction does the weather have?"
     wind = s.find('yweather:wind')
     data.update(('wind_' + attr, wind.attrs[attr]) for attr in wind.attrs)
-    data['wind_direction_fuzzy'] = fuzzy_direction(data['wind_direction'])
+    data['wind_direction_fuzzy'] = fuzzy_direction(int(data['wind_direction']))
+    data['wind_direction_arrow'] = arrow_direction(int(data['wind_direction']))
     # Atmospheric conditions - humidity, visibility, pressure
     data.update(s.find('yweather:atmosphere').attrs)
     # Astronomical conditions - sunrise / sunset
@@ -63,7 +71,7 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser()
     p.add_argument('woeid')
     p.add_argument('--format', metavar='F',
-                   default=u'{city}, {region}: {text}, {temp}\u00b0{unit_temperature}',
+                   default='{city}, {region}: {text}, {temp}\u00b0{unit_temperature}',
                    help="format string for output")
     p.add_argument('--position', metavar='P', type=int, default=-2,
                    help="position of output in JSON when wrapping i3status")
@@ -103,7 +111,7 @@ if __name__ == '__main__':
                         weather['full_text'] = _get_weather()
                     except Exception as e:
                         weather['full_text'] = ''
-                        print(u'{}: {}'.format(e.__class__.__name__, e), file=sys.stderr)
+                        print('{}: {}'.format(e.__class__.__name__, e), file=sys.stderr)
                     last_update = time.time()
         except KeyboardInterrupt:
             sys.exit()
@@ -111,5 +119,4 @@ if __name__ == '__main__':
         try:
             print(_get_weather())
         except Exception as e:
-            print(u'{}: {}'.format(e.__class__.__name__, e), file=sys.stderr)
-
+            print('{}: {}'.format(e.__class__.__name__, e), file=sys.stderr)
